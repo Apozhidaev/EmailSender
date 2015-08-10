@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SmtpConfiguration.cs" />
+    <Compile Include="SmtpSettings.cs" />
     <Compile Include="EmailRenderer.cs" />
     <Compile Include="EmailSender.cs" />
     <Compile Include="TemplateProvider.cs" />

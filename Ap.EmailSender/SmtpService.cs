@@ -5,9 +5,9 @@ namespace Ap.EmailSender
 {
     public class SmtpService : ISmtpService
     {
-        private readonly SmtpConfiguration _config;
+        private readonly SmtpSettings _config;
 
-        public SmtpService(SmtpConfiguration config)
+        public SmtpService(SmtpSettings config)
         {
             _config = config;
         }
