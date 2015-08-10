@@ -13,11 +13,11 @@ namespace Ap.EmailSender
             _smtpService = smtpService;
         }
 
-        public void Send<T>(string[] emailAddress, T model, params string[] attachments)
+        public void Send<T>(string[] recipients, T model, string[] attachments = null) where T : class 
         {
             string subject = _emailSubjectRenderer.Render(model);
             string body = _emailBodyRenderer.Render(model);
-            _smtpService.Send(emailAddress, subject, body, attachments);
+            _smtpService.Send(recipients, subject, body, attachments);
         }
     }
 }

@@ -2,6 +2,6 @@ namespace Ap.EmailSender
 {
     public interface IViewEngine
     {
-        string Render(object model, string formattedString);
+        string Render<T>(T model, string template) where T : class;
     }
 }

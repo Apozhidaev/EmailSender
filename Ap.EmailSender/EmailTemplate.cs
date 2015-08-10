@@ -4,7 +4,13 @@ namespace Ap.EmailSender
 {
     public class EmailTemplate
     {
-        public Type ForType { get; set; }
-        public string Template { get; set; }
+        public EmailTemplate(Type forType, string template)
+        {
+            Template = template;
+            ForType = forType;
+        }
+
+        public Type ForType { get; private set; }
+        public string Template { get; private set; }
     }
 }

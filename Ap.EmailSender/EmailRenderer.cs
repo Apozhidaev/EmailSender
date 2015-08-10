@@ -11,7 +11,7 @@ namespace Ap.EmailSender
             _viewEngine = viewEngine;
         }
 
-        public string Render<T>(T model)
+        public string Render<T>(T model) where T : class 
         {
             return _viewEngine.Render(model, _templateProvider.GetTemplateFor(model));
         }

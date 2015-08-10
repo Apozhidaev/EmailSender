@@ -12,7 +12,7 @@ namespace Ap.EmailSender
             _config = config;
         }
 
-        public void Send(string[] recipients, string subject, string body, params string[] attachments)
+        public void Send(string[] recipients, string subject, string body, string[] attachments = null)
         {
             var smtp = new SmtpClient
             {
@@ -51,6 +51,5 @@ namespace Ap.EmailSender
 
             smtp.Send(mail);
         }
-
     }
 }

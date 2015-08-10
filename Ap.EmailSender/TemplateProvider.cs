@@ -13,7 +13,7 @@ namespace Ap.EmailSender
             _templates = templates;
         }
 
-        public string GetTemplateFor<T>(T model)
+        public string GetTemplateFor<T>(T model) where T : class 
         {
             var emailTemplate = _templates.FirstOrDefault(x => x.ForType == model.GetType());
 
