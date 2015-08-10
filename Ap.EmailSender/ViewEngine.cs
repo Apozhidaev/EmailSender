@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Ap.EmailSender
 {
@@ -10,8 +11,8 @@ namespace Ap.EmailSender
             {
                 foreach (var propertyInfo in model.GetType().GetProperties())
                 {
-                    var token = String.Format("{{{{{0}}}}}", propertyInfo.Name);
-                    template = template.Replace(token, propertyInfo.GetValue(model).ToString());
+                    var token = String.Format("{{{{\\s*{0}\\s*}}}}", propertyInfo.Name);
+                    template = Regex.Replace(template, token, propertyInfo.GetValue(model).ToString());
                 }
             }
             return template;
