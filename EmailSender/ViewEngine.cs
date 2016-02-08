@@ -11,7 +11,7 @@ namespace EmailSender
             {
                 foreach (var propertyInfo in model.GetType().GetProperties())
                 {
-                    var token = String.Format("{{{{\\s*{0}\\s*}}}}", propertyInfo.Name);
+                    var token = $"{{{{\\s*{propertyInfo.Name}\\s*}}}}";
                     template = Regex.Replace(template, token, propertyInfo.GetValue(model).ToString());
                 }
             }

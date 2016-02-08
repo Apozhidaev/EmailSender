@@ -1,5 +1,4 @@
 ﻿using System;
-using EmailSender;
 
 namespace EmailSender.Tests
 {
@@ -24,7 +23,7 @@ namespace EmailSender.Tests
 
     public class TestSmtpService : ISmtpService
     {
-        public void Send(string[] recipients, string subject, string body, string[] attachments = null)
+        public void Send(string[] recipients, string subject, string body, params string[] attachments)
         {
             foreach (var recipient in recipients)
             {
