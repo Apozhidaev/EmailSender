@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EmailSender;
 
-namespace Ap.EmailSender.Test
+namespace EmailSender.Tests
 {
     class Program
     {
@@ -13,8 +10,8 @@ namespace Ap.EmailSender.Test
             var viewEngine = new ViewEngine();
             var bodyProvider = new TemplateProvider(new[] { new EmailTemplate(typeof(TestMail), "<b>{{Value}}</b>") });
             var subjectProvider = new TemplateProvider(new[] { new EmailTemplate(typeof(TestMail), "{{Title}}") });
-            var emailSender = new EmailSender(new EmailRenderer(bodyProvider, viewEngine), new EmailRenderer(subjectProvider, viewEngine), new TestSmtpService());
-            emailSender.Send(new[] { "tt" }, new TestMail { Value = "777", Title = "555"});
+            var emailService = new EmailService(new EmailRenderer(bodyProvider, viewEngine), new EmailRenderer(subjectProvider, viewEngine), new TestSmtpService());
+            emailService.Send(new[] { "tt" }, new TestMail { Value = "777", Title = "555"});
             Console.ReadKey();
         }
     }

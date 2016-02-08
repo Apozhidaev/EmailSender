@@ -1,4 +1,4 @@
-﻿namespace Ap.EmailSender
+﻿namespace EmailSender
 {
     public class SmtpSettings
     {

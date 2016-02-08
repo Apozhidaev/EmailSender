@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2C84BDE-5E22-4D2D-8447-18101163E6CE}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{F24CB0DD-482C-4010-B1E4-4EECA6950323}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ap.EmailSender.Test</RootNamespace>
-    <AssemblyName>Ap.EmailSender.Test</AssemblyName>
+    <RootNamespace>EmailSender</RootNamespace>
+    <AssemblyName>EmailSender</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,17 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="SmtpSettings.cs" />
+    <Compile Include="EmailRenderer.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="TemplateProvider.cs" />
+    <Compile Include="ViewEngine.cs" />
+    <Compile Include="IEmailRenderer.cs" />
+    <Compile Include="EmailTemplate.cs" />
+    <Compile Include="ITemplateProvider.cs" />
+    <Compile Include="ISmtpService.cs" />
+    <Compile Include="IViewEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ap.EmailSender\Ap.EmailSender.csproj">
-      <Project>{f24cb0dd-482c-4010-b1e4-4eeca6950323}</Project>
-      <Name>Ap.EmailSender</Name>
-    </ProjectReference>
+    <Compile Include="SmtpService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

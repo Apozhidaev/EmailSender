@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace Ap.EmailSender
+namespace EmailSender
 {
     public class SmtpService : ISmtpService
     {
@@ -12,7 +12,7 @@ namespace Ap.EmailSender
             _config = config;
         }
 
-        public void Send(string[] recipients, string subject, string body, string[] attachments = null)
+        public void Send(string[] recipients, string subject, string body, params string[] attachments)
         {
             var smtp = new SmtpClient
             {
@@ -40,13 +40,10 @@ namespace Ap.EmailSender
                 mail.To.Add(new MailAddress(to));
             }
 
-            if (attachments != null)
+            foreach (string fileName in attachments)
             {
-                foreach (string fileName in attachments)
-                {
-                    var attachment = new Attachment(fileName);
-                    mail.Attachments.Add(attachment);
-                }
+                var attachment = new Attachment(fileName);
+                mail.Attachments.Add(attachment);
             }
 
             smtp.Send(mail);

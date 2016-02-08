@@ -1,6 +1,6 @@
 using System;
 
-namespace Ap.EmailSender
+namespace EmailSender
 {
     public class EmailTemplate
     {

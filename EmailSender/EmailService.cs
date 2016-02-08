@@ -1,12 +1,12 @@
-namespace Ap.EmailSender
+namespace EmailSender
 {
-    public class EmailSender
+    public class EmailService
     {
         readonly IEmailRenderer _emailBodyRenderer;
         readonly IEmailRenderer _emailSubjectRenderer;
         readonly ISmtpService _smtpService;
 
-        public EmailSender(IEmailRenderer emailBodyRenderer, IEmailRenderer emailSubjectRenderer, ISmtpService smtpService)
+        public EmailService(IEmailRenderer emailBodyRenderer, IEmailRenderer emailSubjectRenderer, ISmtpService smtpService)
         {
             _emailBodyRenderer = emailBodyRenderer;
             _emailSubjectRenderer = emailSubjectRenderer;

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ap.EmailSender
+namespace EmailSender
 {
     public class TemplateProvider : ITemplateProvider
     {
@@ -18,7 +18,7 @@ namespace Ap.EmailSender
             var emailTemplate = _templates.FirstOrDefault(x => x.ForType == model.GetType());
 
             if (emailTemplate == null)
-                throw new ArgumentException(String.Format("No template available for model type '{0}'.", model.GetType()));
+                throw new ArgumentException($"No template available for model type '{model.GetType()}'.");
 
             return emailTemplate.Template;
         }

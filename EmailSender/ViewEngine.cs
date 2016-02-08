@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Ap.EmailSender
+namespace EmailSender
 {
     public class ViewEngine : IViewEngine
     {
